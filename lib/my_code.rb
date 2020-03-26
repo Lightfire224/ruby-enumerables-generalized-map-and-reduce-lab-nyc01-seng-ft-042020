@@ -9,13 +9,17 @@ def map(array)
   new_array
 end
 
-def reduce(array)
-  new_array = []
-  counter = 0
-  while counter < array.length
-    new_array.push(yield(array[counter]))
-    running_total =
-    counter += 1
+def reduce(array, s=nil)
+  if s
+    sum = s
+    counter = 0
+  else
+    sum = array[0]
+    i= 1
   end
-  new_array
+  while i<array.length
+    sum = yield(sum,array[counter])
+    i += 1
+  end
+  sum
 end
