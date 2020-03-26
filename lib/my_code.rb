@@ -15,11 +15,11 @@ def reduce(array, s=nil)
     counter = 0
   else
     sum = array[0]
-    i= 1
+    counter= 1
   end
   while i<array.length
     sum = yield(sum,array[counter])
-    i += 1
+    counter += 1
   end
   sum
 end
